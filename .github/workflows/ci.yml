@@ -29,6 +29,8 @@ jobs:
 
 
     steps:
+      - uses: actions/checkout@v4
+
       # Install latest CMake and Ninja.
       - uses: lukka/get-cmake@latest
 
