@@ -34,3 +34,8 @@ jobs:
 
       - name: Install vcpkg
         uses: lukka/run-vcpkg@v11
+
+
+      - name: Debug with tmate on failure
+        if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3
