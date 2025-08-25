@@ -11,8 +11,10 @@ on:
     - cron: '30 2 * * 1,4' # Every Monday and Thursday @ 2h30am UTC
 
 env:
-  HOST_PYTHON_VERSION: "3.12"
-  ARTIFACT_NAME: wheel
+  USERNAME: sjperkins
+  VCPKG_EXE: ${{ github.workspace }}/vcpkg/vcpkg
+  FEED_URL: https://nuget.pkg.github.com/sjperkins/index.json
+  VCPKG_BINARY_SOURCES: "clear;nuget,https://nuget.pkg.github.com/sjperkins/index.json,readwrite"
 
 jobs:
   vcpkg-nuget-test:
