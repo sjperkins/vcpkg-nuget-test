@@ -27,8 +27,5 @@ jobs:
 
 
     steps:
-    - name: Bootstrap vcpkg
-      shell: bash
-      run: ${{ github.workspace }}/vcpkg/bootstrap-vcpkg.sh
-
-
+      - name: Install vcpkg
+        uses: lukka/run-vcpkg@v11
