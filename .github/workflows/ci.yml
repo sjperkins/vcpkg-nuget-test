@@ -1,0 +1,34 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+    - main
+    tags:
+    - "*"
+  pull_request:
+  schedule:
+    - cron: '30 2 * * 1,4' # Every Monday and Thursday @ 2h30am UTC
+
+env:
+  HOST_PYTHON_VERSION: "3.12"
+  ARTIFACT_NAME: wheel
+
+jobs:
+  vcpkg-nuget-test:
+    name: Test vcpkg with nuget
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ["ubuntu-22.04"]
+    permissions:
+      packages: write
+    runs-on: ${{ matrix.os }}
+
+
+    steps:
+    - name: Bootstrap vcpkg
+      shell: bash
+      run: ${{ github.workspace }}/vcpkg/bootstrap-vcpkg.sh
+
+
