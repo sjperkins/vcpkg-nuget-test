@@ -29,5 +29,8 @@ jobs:
 
 
     steps:
+      # Install latest CMake and Ninja.
+      - uses: lukka/get-cmake@latest
+
       - name: Install vcpkg
         uses: lukka/run-vcpkg@v11
