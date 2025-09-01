@@ -7,8 +7,8 @@ on:
     tags:
     - "*"
   pull_request:
-  # schedule:
-  #  - cron: '30 2 * * 1,4' # Every Monday and Thursday @ 2h30am UTC
+  schedule:
+   - cron: '30 2 * * 1,4' # Every Monday and Thursday @ 2h30am UTC
 
 env:
   USERNAME: sjperkins
@@ -40,6 +40,6 @@ jobs:
           runVcpkgInstall: true
 
 
-      - name: Debug with tmate on failure
-        if: ${{ failure() }}
-        uses: mxschmitt/action-tmate@v3
+      # - name: Debug with tmate on failure
+      #   if: ${{ failure() }}
+      #   uses: mxschmitt/action-tmate@v3
